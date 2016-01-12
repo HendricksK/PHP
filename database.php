@@ -17,6 +17,21 @@ class mysql_database {
 		return $conn;
 	}
 
+	/*switch (n) {
+	    case label1:
+	        code to be executed if n=label1;
+	        break;
+	    case label2:
+	        code to be executed if n=label2;
+	        break;
+	    case label3:
+	        code to be executed if n=label3;
+	        break;
+	    ...
+	    	default:
+	        code to be executed if n is different from all labels;
+	} will clean up the database class, to ensure that there are less functions, to reduce the overall size of the file*/
+
 	public function fetch($query){
 		$conn = new mysql_database();
 		$conn = $conn->__construction();
