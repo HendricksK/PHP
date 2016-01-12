@@ -36,6 +36,18 @@ class mysql_database {
 		}
 	}
 
+	public function insert_dvd($query){
+		$conn = new mysql_database();
+		$conn = $conn->__construction();
+		if($conn->query($query) === TRUE){
+			sleep(1);
+		   	header("Location: dvd.php?add_dvd_status=success");
+		   	die();
+		}else {
+		    echo "Error updating record: " . $conn->error;
+		}
+	}
+
 	public function update($query){
 		$conn = new mysql_database();
 		$conn = $conn->__construction();
@@ -48,12 +60,36 @@ class mysql_database {
 		}
 	}
 
+	public function update_dvd($query){
+		$conn = new mysql_database();
+		$conn = $conn->__construction();
+		if($conn->query($query) === TRUE){
+			sleep(1);
+		   	header("Location: dvd.php?edit_dvd_status=success");
+		   	die();
+		}else {
+		    echo "Error updating record: " . $conn->error;
+		}
+	}
+
 	public function delete($query){
 		$conn = new mysql_database();
 		$conn = $conn->__construction();
 		if($conn->query($query) === TRUE){
 			sleep(1);
 		   	header("Location: customer.php?delete_customer_status=success");
+		   	die();
+		}else {
+		    echo "Error updating record: " . $conn->error;
+		}
+	}
+
+	public function delete_dvd($query){
+		$conn = new mysql_database();
+		$conn = $conn->__construction();
+		if($conn->query($query) === TRUE){
+			sleep(1);
+		   	header("Location: dvd.php?delete_dvd_status=success");
 		   	die();
 		}else {
 		    echo "Error updating record: " . $conn->error;

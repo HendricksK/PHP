@@ -6,9 +6,9 @@ include('database.php');
 
 	if(!empty($_GET))
 	{
-		$ID = ($_GET["ID"]);
+		$ID = ($_GET["dvd_id"]);
 		echo $ID;
-		$sql = 'DELETE FROM customer WHERE ID='.$ID.'';;
-		$result = $dbconn->delete($sql);
+		$sql = 'DELETE FROM dvd WHERE ID='.$ID.'';
+		$result = $dbconn->delete_dvd($sql);
 	}
 ?>
