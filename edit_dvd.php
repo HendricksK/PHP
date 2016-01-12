@@ -11,7 +11,8 @@ include('database.php');
 	   $release_date = $_POST["release_date"];
 	   $category_id = $_POST["category_id"];
 
-		$sql = "UPDATE dvd SET name='".$name."', description='".$description."', release_date='".$release_date."', category_id='".$category_id."' WHERE id='".$ID."'";
+		$sql = 'UPDATE dvd SET name="'.$name.'", description='.$description.', release_date="'.$release_date.'", category_id="'.$category_id.'" WHERE id="'.$ID.'"';
+		echo $sql;
 		$result = $dbconn->update_dvd($sql);
 
 	}

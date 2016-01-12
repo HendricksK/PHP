@@ -67,21 +67,21 @@ else
 if(isset($_GET["edit_dvd_status"])){
     $status = ($_GET["edit_dvd_status"]);
     if($status == "success"){
-        echo "Customer successfully updated";
+        echo "DVD successfully updated";
     }
 }
 
 if(isset($_GET["add_dvd_status"])){
     $status = ($_GET["add_dvd_status"]);
     if($status == "success"){
-        echo "Customer successfully added to database";
+        echo "DVD successfully added to database";
     }
 }
 
 if(isset($_GET["delete_customer_status"])){
     $status = ($_GET["delete_customer_status"]);
     if($status == "success"){
-        echo "Customer successfully deleted from database";
+        echo "DVD successfully deleted from database";
     }
 }
 
