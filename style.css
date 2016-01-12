@@ -1,0 +1,15 @@
+table{
+	width: 100%;
+	border: 1px solid black;
+}
+
+table td {
+	max-width: 16em;
+}
+
+form{
+	padding-top: 5%;
+	width: 50%;
+	margin: auto;
+}
+
