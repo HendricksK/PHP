@@ -85,6 +85,18 @@ class mysql_database {
 		}
 	}
 
+	public function update_order($query){
+		$conn = new mysql_database();
+		$conn = $conn->__construction();
+		if($conn->query($query) === TRUE){
+			sleep(1);
+		   	header("Location: order.php?edit_order_status=success");
+		   	die();
+		}else {
+		    echo "Error updating record: " . $conn->error;
+		}
+	}
+
 	public function delete($query){
 		$conn = new mysql_database();
 		$conn = $conn->__construction();
@@ -103,6 +115,18 @@ class mysql_database {
 		if($conn->query($query) === TRUE){
 			sleep(1);
 		   	header("Location: dvd.php?delete_dvd_status=success");
+		   	die();
+		}else {
+		    echo "Error updating record: " . $conn->error;
+		}
+	}
+
+	public function delete_order($query){
+		$conn = new mysql_database();
+		$conn = $conn->__construction();
+		if($conn->query($query) === TRUE){
+			sleep(1);
+		   	header("Location: order.php?delete_order_status=success");
 		   	die();
 		}else {
 		    echo "Error updating record: " . $conn->error;

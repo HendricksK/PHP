@@ -17,8 +17,8 @@ if(isset($_GET["add_order_status"])){
     }
 }
 
-if(isset($_GET["delete_customer_status"])){
-    $status = ($_GET["delete_customer_status"]);
+if(isset($_GET["delete_order_status"])){
+    $status = ($_GET["delete_order_status"]);
     if($status == "success"){
         echo "Customer successfully deleted from database";
     }
@@ -29,7 +29,8 @@ if(isset($_GET["delete_customer_status"])){
 <table>
 	<tr><td>Order ID</td>
     <td>Customer ID</td> 
-	<td>Date</td>
+	<td>Rental Date</td>
+    <td>Return Date</td>
 	<td>Actions</td></tr>
 
 <?php
@@ -47,8 +48,9 @@ if ($result->num_rows > 0) {
         echo "<tr>"."<td>" . $row["orders_ID"]."</td>". 
         "<td>" . $row["ID"]. "</td>". 
         "<td>" . $row["rent_date"]. "</td>" .
-         "<td><form action=edit_order.php?order_id='".$row["ID"]."' method='post'><input type='submit' value='edit'></form></td>" .
-        "<td><form action=delete_order.php?order_id='".$row["ID"]."' method='post'><input type='submit' value='delete'></form></td>";
+        "<td>" . $row["actual_return_date"]. "</td>" .
+        "<td><form action='edit_order.php?order_id=".$row["orders_ID"]."' method='post'><input type='submit' value='edit'></form></td>" .
+        "<td><form action='delete_order.php?order_id=".$row["orders_ID"]."' method='post'><input type='submit' value='delete'></form></td>";
     }
 }
 
