@@ -13,3 +13,11 @@ form{
 	margin: auto;
 }
 
+ul{
+	width: 50%;
+	margin: auto;
+}
+
+ul li {
+	list-style: none;
+}
