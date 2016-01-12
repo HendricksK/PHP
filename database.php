@@ -48,6 +48,19 @@ class mysql_database {
 		}
 	}
 
+	public function insert_order($query){
+		$conn = new mysql_database();
+		$conn = $conn->__construction();
+		if($conn->query($query) === TRUE){
+			sleep(1);
+		   	header("Location: order.php?add_order_status=success");
+		   	die();
+		   	return $conn->insert_id;
+		}else {
+		    echo "Error updating record: " . $conn->error;
+		}
+	}
+
 	public function update($query){
 		$conn = new mysql_database();
 		$conn = $conn->__construction();
