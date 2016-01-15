@@ -2,28 +2,6 @@
 <?php include('header.php');?>
 <body>
 
-<?php
-if(isset($_GET["edit_customer_status"])){
-    $status = ($_GET["edit_customer_status"]);
-    if($status == "success"){
-        echo "Customer successfully updated";
-    }
-}
-
-if(isset($_GET["add_order_status"])){
-    $status = ($_GET["add_order_status"]);
-    if($status == "success"){
-        echo "Order successfully added to database";
-    }
-}
-
-if(isset($_GET["delete_order_status"])){
-    $status = ($_GET["delete_order_status"]);
-    if($status == "success"){
-        echo "Customer successfully deleted from database";
-    }
-}
-?>
 <form action="add_order.php" method="post"><input type="submit" value="Add order"></form>
 
 <table>

@@ -65,24 +65,6 @@ else
 {
    //echo "<p>not clicked";
 }
-
-
-
-if(isset($_GET["edit_customer_status"])){
-	$status = ($_GET["edit_customer_status"]);
-	if($status == "success"){
-		echo "Customer successfully updated";
-	}
-}
-
-if(isset($_GET["delete_customer_status"])){
-	$status = ($_GET["delete_customer_status"]);
-	if($status == "success"){
-		echo "Customer successfully deleted from database";
-	}
-}
-
-
 ?>
 
 <form action="add_customer.php" method="post"><input type="submit" value="Add Customer"></form>

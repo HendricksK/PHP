@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
         "<td>" . $row["description"]. "</td>". 
         "<td>" . $row["release_date"] ."</td>" . 
         "<td>". $row["category_name"] ."</td>".
-        "<td><form action=dvd.php?ID='".$row["ID"]."' method='post'><input type='submit' value='edit'></form></td>" .
+        "<td><form action=edit_dvd.php?ID='".$row["ID"]."' method='post'><input type='submit' value=edit></form></td>" .
         "<td><form action=delete_dvd.php?dvd_id='".$row["ID"]."' method='post'><input type='submit' value='delete'></form></td>";
     }
 }
@@ -30,55 +30,6 @@ if ($result->num_rows > 0) {
 
 </td></tr>
 </table>
-
-<?php
-if (!empty($_GET["ID"]))
-{
-   $id = ($_GET["ID"]);
-   
-   $db = new mysql_database();
-
-    $result = $db->fetch("select * from customer where ID=".$id."");
-   
-   if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-                echo '<form method="post" action="edit_dvd.php?ID='.$row["ID"].'">
-                Name: <input type="text" name="name" value="'.$row["name"].'" required><br>
-                Description: <textarea name="description" value required>"'.$row["description"].'"</textarea><br>
-                Release Date: <input type="text" name="release_date" value="'.$row["release_date"].'" required><br>
-                Category ID: <input type="text" name="category_id" value="'.$row["category_id"].'" required><br>
-                <input type="submit">
-                </form>';
-            }
-        }
-   }
-else
-{
-   //echo "<p>not clicked";
-}
-
-if(isset($_GET["edit_dvd_status"])){
-    $status = ($_GET["edit_dvd_status"]);
-    if($status == "success"){
-        echo "DVD successfully updated";
-    }
-}
-
-if(isset($_GET["add_dvd_status"])){
-    $status = ($_GET["add_dvd_status"]);
-    if($status == "success"){
-        echo "DVD successfully added to database";
-    }
-}
-
-if(isset($_GET["delete_customer_status"])){
-    $status = ($_GET["delete_customer_status"]);
-    if($status == "success"){
-        echo "DVD successfully deleted from database";
-    }
-}
-
-?>
 
 <form action="add_dvd.php" method="post"><input type="submit" value="Add DVD"></form>
 

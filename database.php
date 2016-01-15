@@ -77,7 +77,7 @@ class mysql_database {
 
 	public function delete($query){
 		if($this->database->query($query) === TRUE){
-                    return "Customer succesfully deleted";
+                    
 		}else {
 		    echo "Error updating record: " . $this->database->error;
 		}
