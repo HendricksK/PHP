@@ -1,7 +1,7 @@
+<html>
+<?php include('header.php'); ?>    
+<body
 <?php
-include('header.php');
-include('database.php');
-
 	$dbconn = new mysql_database();
 
 	if(!empty($_GET))
@@ -10,5 +10,9 @@ include('database.php');
 		echo $ID;
 		$sql = 'DELETE FROM customer WHERE ID='.$ID.'';;
 		$result = $dbconn->delete($sql);
+                echo $result;
 	}
 ?>
+<form action="customer.php" method="post"><input type="submit" value="Return"></form>
+</body>
+</html>

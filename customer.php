@@ -12,9 +12,6 @@
 	<td>Actions</td></tr>
 
 <?php 
-
-include('database.php');
-
 $dbconn = new mysql_database();
 
 $result = $dbconn->fetch("select * from customer");
@@ -46,9 +43,8 @@ if (isset($_GET["q"]))
 {
    $id = ($_GET["q"]);
 
-   $dbconn = new mysql_database();
-
    $result = $dbconn->fetch("select * from customer where ID=".$id."");
+   
    if ($result->num_rows > 0) {
 
    		while($row = $result->fetch_assoc()) {
@@ -71,17 +67,11 @@ else
 }
 
 
+
 if(isset($_GET["edit_customer_status"])){
 	$status = ($_GET["edit_customer_status"]);
 	if($status == "success"){
 		echo "Customer successfully updated";
-	}
-}
-
-if(isset($_GET["add_customer_status"])){
-	$status = ($_GET["add_customer_status"]);
-	if($status == "success"){
-		echo "Customer successfully added to database";
 	}
 }
 

@@ -1,6 +1,7 @@
-<?php
-include('database.php');
-
+<html>
+<?php include('header.php');?>
+<body>
+    <?php
 	$dbconn = new mysql_database();
 
 	if (!empty($_POST) && !empty($_GET))
@@ -11,9 +12,11 @@ include('database.php');
 	   $release_date = $_POST["release_date"];
 	   $category_id = $_POST["category_id"];
 
-		$sql = 'UPDATE dvd SET name="'.$name.'", description='.$description.', release_date="'.$release_date.'", category_id="'.$category_id.'" WHERE id="'.$ID.'"';
-		echo $sql;
+		$sql = 'UPDATE dvd SET name="'.$name.'", description="'.$description.'", release_date="'.$release_date.'", category_id="'.$category_id.'" WHERE id="'.$ID.'"';
 		$result = $dbconn->update_dvd($sql);
-
+                echo $result;
 	}
 ?>
+    <form action="dvd.php" method="post"><input type="submit" value="Return"></form>
+</body>
+</html>

@@ -2,7 +2,6 @@
 <?php include('header.php');?>
 <body>
 <?php
-include('database.php');
 
 if (!empty($_GET))
 {
@@ -16,7 +15,7 @@ if (!empty($_GET))
    if ($result->num_rows > 0) {
 
    		while($row = $result->fetch_assoc()) {	
-       		echo '<form method="post" action="edit_order.php?orders_ID='.$row["orders_ID"].'">
+       		echo '<form method="post" action="edit_order.php?order_id='.$row["orders_ID"].'">
 					Rental Date: <input type="text" name="rent_date" value="'.$row["rent_date"] .'" required><br>
 					Due Date: <input type="text" name="due_date" value="'.$row["due_date"] .'" required><br>
 					Return Date: <input type="text" name="actual_return_date" value="'.$row["actual_return_date"].'" required><br>
@@ -35,7 +34,7 @@ else
 
   if (!empty($_POST) && !empty($_GET))
   {
-     $orders_ID = $_GET["orders_ID"];
+     $orders_ID = $_GET["order_id"];
      $rent_date = $_POST["rent_date"];
      $due_date = $_POST["due_date"];
      $actual_return_date = $_POST["actual_return_date"];
@@ -43,8 +42,9 @@ else
 
     $sql = "UPDATE orders SET rent_date='".$rent_date."', due_date='".$due_date."', due_date='".$due_date."', actual_return_date='".$actual_return_date."' WHERE orders_ID='".$orders_ID."'";
     $result = $dbconn->update_order($sql);
-
+    echo $result;
   }
 ?>
+    <form action="order.php" method="post"><input type="submit" value="Return"></form>
 </body>
 </html>

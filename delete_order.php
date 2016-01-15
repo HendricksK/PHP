@@ -1,14 +1,20 @@
+<html>
+    <?php include('header.php');?>
+<body>
 <?php
-include('header.php');
-include('database.php');
+
 
 	$dbconn = new mysql_database();
 
 	if(!empty($_GET))
 	{
 		$ID = ($_GET["order_id"]);
-		echo $ID;
 		$sql = "DELETE FROM orders WHERE orders_ID=".$ID."";
 		$result = $dbconn->delete_order($sql);
+                echo $result;
 	}
 ?>
+
+<form action="order.php" method="post"><input type="submit" value="Return"></form>
+</body>
+</html>

@@ -12,14 +12,10 @@
 </form>
 
 <?php
-
-include('database.php');
-
 	$dbconn = new mysql_database();
 
 	if (!empty($_POST))
 	{
-	   $ID = $_POST["ID"];
 	   $name = $_POST["name"];
 	   $surname = $_POST["surname"];
 	   $contact_number = $_POST["contact_number"];
@@ -29,10 +25,11 @@ include('database.php');
 
 		$sql = "INSERT INTO customer (name, surname, contact_number, email, sa_id_number, address) 
 		values ('".$name."', '".$surname."', '".$contact_number."', '".$email."', '".$sa_id_number."', '".$address."')";
-		//$sql = "UPDATE customer SET name='".$name."' WHERE id='".$ID."'";
 		
-		$result = $dbconn->insert($sql);
+            $result = $dbconn->insert($sql);
+            echo $result;
 	}
 
 ?>
+    <form action="customer.php" method="post"><input type="submit" value="Return"></form>
 </body>

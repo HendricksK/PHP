@@ -34,9 +34,6 @@ if(isset($_GET["delete_order_status"])){
 	<td>Actions</td></tr>
 
 <?php
-
-include('database.php');
-
 $dbconn = new mysql_database();
 
 $result = $dbconn->fetch("SELECT * FROM orders INNER JOIN customer on customer.ID=orders.customer_id ORDER BY orders_ID DESC");

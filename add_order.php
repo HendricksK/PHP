@@ -2,7 +2,7 @@
 <?php include('header.php');?>
 <body>
 
-	<table>
+    <table>
     <tr><td>ID</td> 
     <td>Name</td> 
     <td>Surname</td>
@@ -13,9 +13,6 @@
     <td>Actions</td></tr>
 
 <?php 
-
-include('database.php');
-
 $dbconn = new mysql_database();
 
 $result = $dbconn->fetch("select * from customer");
@@ -49,9 +46,6 @@ if ($result->num_rows > 0) {
 	<td>Category name</td></tr>
 
 <?php
-
-$dbconn = new mysql_database();
-
 $result = $dbconn->fetch("select * from dvd inner join category on category.Category_ID=dvd.category_id");
 
 if ($result->num_rows > 0) {
@@ -84,18 +78,18 @@ if ($result->num_rows > 0) {
 
 <!-- need to add an dvd_order for every dvd added-->
 <?php
+$dbconn = new mysql_database();
 
 	if (!empty($_POST))
 	{
 		//print_r($_POST);
-	    $customer = $_POST["customer_id"];
+	    $customer_id = $_POST["customer_id"];
 	    $dvd_id_array = $_POST["dvd"];
-
+            
 		$sql = "INSERT INTO orders (customer_id, rent_date, due_date, actual_return_date) 
-		values ('".$customer."', curdate(), adddate(curdate(),2) , '' )";
+		values ('".$customer_id."', curdate(), adddate(curdate(),2) , '' )";
 		
 		$result = $dbconn->insert_order($sql);
-		//echo $result;
 
 		$dvd_id_array = explode(",", $dvd_id_array);
 
@@ -103,13 +97,8 @@ if ($result->num_rows > 0) {
 			$sql = "insert into dvd_orders (dvd_id, order_id) values ('".$dvd_id."', '".$result."')";
 			$result = $dbconn->insert_order($sql);
 		}
-		
-		//echo $result;
 	}
 
 ?>
-<script type="text/javascript">
-	
-</script>
-
+    <form action="order.php" method="post"><input type="submit" value="Return"></form>
 </body>

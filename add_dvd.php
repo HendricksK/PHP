@@ -11,10 +11,7 @@
 </form>
 
 <?php
-
-include('database.php');
-
-	$dbconn = new mysql_database();
+    $dbconn = new mysql_database();
 
 	if (!empty($_POST))
 	{
@@ -23,13 +20,14 @@ include('database.php');
 	   $release_date = $_POST["release_date"];
 	   $category_id = $_POST["category_id"];
 
-		$sql = "INSERT INTO dvd (name, description, release_date, category_id) 
-		values ('".$name."', '".$description."', '".$release_date."', '".$category_id."')";
+           $sql = "INSERT INTO dvd (name, description, release_date, category_id) 
+           values ('".$name."', '$description', '".$release_date."', '".$category_id."')";
 		
-		$result = $dbconn->insert_dvd($sql);
+           $result = $dbconn->insert_dvd($sql);
+           echo $result;
 	}
 
 ?>
-
-
-</body>
+        <form action="dvd.php" method="post"><input type="submit" value="Return"></form>
+    </body>
+</html>

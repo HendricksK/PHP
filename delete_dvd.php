@@ -1,14 +1,20 @@
+<html>
+    <?php include('header.php');?>
+<body>
 <?php
-include('header.php');
-include('database.php');
+
 
 	$dbconn = new mysql_database();
 
 	if(!empty($_GET))
 	{
 		$ID = ($_GET["dvd_id"]);
-		echo $ID;
 		$sql = 'DELETE FROM dvd WHERE ID='.$ID.'';
 		$result = $dbconn->delete_dvd($sql);
+                echo $result;
 	}
 ?>
+
+<form action="dvd.php" method="post"><input type="submit" value="Return"></form>
+</body>
+</html>
