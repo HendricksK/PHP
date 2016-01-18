@@ -50,6 +50,15 @@ class mysql_database {
             echo "Error updating record: " . $this->database->error;
 	}
     }
+    
+     public function insert_category($query){
+	if($this->database->query($query) === TRUE){
+            $this->__close();
+            return "Category successfully added to database";    
+	}else {
+            echo "Error updating record: " .  $this->database->error;
+	}
+    }
 
     public function update($query){
             if($this->database->query($query) === TRUE){
@@ -67,41 +76,47 @@ class mysql_database {
 	}
     }
 
-	public function update_order($query){
-            if($this->database->query($query) === TRUE){
-		return "Order succesfully updated";
-            }else {
-                echo "Error updating record: " . $this->database->error;
-            }
-	}
+    public function update_order($query){
+        if($this->database->query($query) === TRUE){
+            return "Order succesfully updated";
+        }else {
+            echo "Error updating record: " . $this->database->error;
+        }
+    }
 
-	public function delete($query){
-		if($this->database->query($query) === TRUE){
-                    
-		}else {
-		    echo "Error updating record: " . $this->database->error;
-		}
+    public function delete($query){
+	if($this->database->query($query) === TRUE){   
+            return "Customer succesfully deleted";
+        }else {
+            echo "Error updating record: " . $this->database->error;
 	}
+    }
 
-	public function delete_dvd($query){
-		if($this->database->query($query) === TRUE){
-                    return "DVD succesfully deleted";
-		}else {
-		    echo "Error updating record: " . $this->database->error;
-		}
+    public function delete_dvd($query){
+	if($this->database->query($query) === TRUE){
+            return "DVD succesfully deleted";
+	}else {
+            echo "Error updating record: " . $this->database->error;
 	}
+    }
 
-	public function delete_order($query){
-		if($this->database->query($query) === TRUE){
-                       return "Order succesfully deleted";
-		}else {
-		    echo "Error updating record: " . $this->database->error;
-		}
+    public function delete_order($query){
+	if($this->database->query($query) === TRUE){
+            return "Order succesfully deleted";
+	}else {
+            echo "Error updating record: " . $this->database->error;
 	}
+    }
+        
+    public function delete_category($query){
+        if($this->database->query($query) === TRUE){
+            return "Order succesfully deleted";
+	}else {
+            echo "Error updating record: " . $this->database->error;
+	}
+    }
         
     private function __close(){
         $this->database->close();
     }
-}
-
-?>
+} ?>
